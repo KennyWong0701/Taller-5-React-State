@@ -31,11 +31,28 @@ class EmployeeList extends Component{
                         <tr>
                             <th>Name</th>
                             <th>Job</th>
+                            <th>Number</th>
+                            <th>Birthday</th>
+                            <th>Department</th>
+                            <th>Active</th>
+                            <th>Gender</th>
+                            <th>Notes</th>
                         </tr>
                     </thead>
                     <tbody>
                         {this.state.employees.map(employee => (
-                            <Employee key={employee.id} id={employee.id} name={employee.name} job={employee.job} fire={this.fireEmployee}/>
+                            <Employee 
+                                key={employee.id} 
+                                id={employee.id} 
+                                name={employee.name} 
+                                job={employee.job} 
+                                enumber={employee.enumber}
+                                birthday={employee.birthday}
+                                department={employee.department}
+                                jobactive={employee.jobactive}
+                                gender={employee.gender}
+                                notes={employee.notes}
+                                fire={this.fireEmployee}/>
                         ))}
                     </tbody>
                 </table>
