@@ -2,7 +2,7 @@ import React, { Component } from "react";
 
 class Employee extends Component{
     render() {
-        const {id, name, job, enumber, birthday, department, jobactive, gender, notes, fire} = this.props;
+        const {id, name, job, enumber, birthday, department, active, gender, notes, fire} = this.props;
         return(
             <tr>
                 <td>{name}</td>
@@ -10,7 +10,7 @@ class Employee extends Component{
                 <td>{enumber}</td>
                 <td>{birthday}</td>
                 <td>{department}</td>
-                <td>{jobactive}</td>
+                <td>{active ? "Yes" : "No"}</td>
                 <td>{gender}</td>
                 <td>{notes}</td>
                 <td>

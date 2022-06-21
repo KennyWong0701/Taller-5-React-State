@@ -49,7 +49,7 @@ class EmployeeList extends Component{
                                 enumber={employee.enumber}
                                 birthday={employee.birthday}
                                 department={employee.department}
-                                jobactive={employee.jobactive}
+                                active={employee.active}
                                 gender={employee.gender}
                                 notes={employee.notes}
                                 fire={this.fireEmployee}/>

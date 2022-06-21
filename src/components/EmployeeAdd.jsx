@@ -8,8 +8,8 @@ class EmployeeAdd extends Component{
         enumber: '', 
         birthday: '', 
         department: '', 
-        jobactive: '', 
-        gender: '', 
+        active: false, 
+        gender: 'male', 
         notes: '',
     };
 
@@ -22,6 +22,14 @@ class EmployeeAdd extends Component{
         });
     };
 
+    handleActiveChange = e => {
+        const { checked } = e.target;
+        this.setState({
+            active: checked,
+        });
+    };
+
+
     handleSubmit = e => {
         e.preventDefault();
         const {hire} = this.props;
@@ -30,7 +38,7 @@ class EmployeeAdd extends Component{
     };
 
     render () {
-        const {id, name, job, enumber, birthday, department, jobactive, gender, notes} = this.state;
+        const {id, name, job, enumber, birthday, department, active, gender, notes} = this.state;
 
         return(
             <form onSubmit={this.handleSubmit}>
@@ -56,22 +64,30 @@ class EmployeeAdd extends Component{
                 </select>
 
 
-                <label htmlFor='jobactive'>State</label>
-                <label htmlFor='gender'>Active</label>
-                <input type="checkbox" id="active" name="active" value={jobactive}  onChange={this.handleChange}></input>
-                <label htmlFor='gender'>Inactive</label>
-                <input type="checkbox" id="nactive" name="nactive" value={jobactive}  onChange={this.handleChange}></input>
+                <label htmlFor='active'>State</label>
+                <div>
+                    <label htmlFor='active'>Active</label>
+                    <input 
+                        type="checkbox" 
+                        id="active" 
+                        name="active" 
+                        checked={active}
+                        onChange={this.handleActiveChange}
+                    ></input>
+                </div>
+                <br />
 
-                
-                <label htmlFor='gender'>Gender</label>
+                <label htmlFor='gender'>Select gender</label>
+                <br />
                 <label htmlFor='gender'>Male</label>
-                <input type="radio" name="Gender" id="Male" value={gender} onChange={this.handleChange}/>
+                <input type="radio" name="gender" id="male" value="male" checked={gender === 'male'} onChange={this.handleChange}/>
                 <label htmlFor='gender'>Female</label>
-                <input type="radio" name="Gender" id="Female" value={gender} onChange={this.handleChange}/>
+                <input type="radio" name="gender" id="female" value="female" checked={gender === 'female'} onChange={this.handleChange}/>
                 <label htmlFor='gender'>Other</label>
-                <input type="radio" name="Gender" id="Other" value={gender} onChange={this.handleChange}/>
+                <input type="radio" name="gender" id="other" value="other" checked={gender === 'other'} onChange={this.handleChange}/>
+                <br />
+                <br />
 
-                
                 <label for="notes">Notes</label>
                 <textarea id="notes" name="notes" rows="10" cols="50" placeholder="Enter notes here" value={notes} onChange={this.handleChange}></textarea>
 
